@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "estadisticas", schema = "nba")
-@IdClass(EstadisticasPK.class)
 public class Estadisticas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -26,6 +25,10 @@ public class Estadisticas {
     @Basic
     @Column(name = "RebotesPorPartido")
     private Double rebotesPorPartido;
+
+    public Estadisticas() {
+
+    }
 
     public String getTemporada() {
         return temporada;
@@ -105,5 +108,14 @@ public class Estadisticas {
         result = 31 * result + (taponesPorPartido != null ? taponesPorPartido.hashCode() : 0);
         result = 31 * result + (rebotesPorPartido != null ? rebotesPorPartido.hashCode() : 0);
         return result;
+    }
+
+    public Estadisticas(String temporada, int codigoJugador, Double puntosPorPartido, Double asistenciasPorPartido, Double taponesPorPartido, Double rebotesPorPartido) {
+        this.temporada = temporada;
+        this.codigoJugador = codigoJugador;
+        this.puntosPorPartido = puntosPorPartido;
+        this.asistenciasPorPartido = asistenciasPorPartido;
+        this.taponesPorPartido = taponesPorPartido;
+        this.rebotesPorPartido = rebotesPorPartido;
     }
 }
