@@ -14,7 +14,7 @@ public class Main2 {
         EntityManager em = emf.createEntityManager();
 
         System.out.println("Ejercicio 1");
-        //mostrarStatsJugador(em);
+        mostrarStatsJugador(em);
         System.out.println("Ejercicio 2");
         mostrarEquiposStats(em);
         System.out.println("Ejercicio 3");
@@ -82,6 +82,14 @@ public class Main2 {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         em.createNativeQuery("insert into Equipos(nombre, ciudad, conferencia, division) values ('Edgerunners', 'Night City', 'West', 'Central') on duplicate key update nombre='Edgerunners'").executeUpdate();
-        em.createNativeQuery("insert into Jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo) values () on duplicate key update nombreEquipo='Edgerunners'");
+        em.createNativeQuery("insert into Jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo) values ('2077', 'David Martinez', 'Night City', '5-12', 89, 'C', 'Edgerunners') on duplicate key update codigo='2077'").executeUpdate();
+        em.createNativeQuery("insert into Jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo) values (2078, 'Lucyna Kushinada', 'Night City', '5-14', 70, 'F', 'Edgerunners') on duplicate key update nombreEquipo='Edgerunners'").executeUpdate();
+        em.createNativeQuery("insert into Jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo) values (2079, 'Rebecca', 'Night City', '5-2', 62, 'G', 'Edgerunners') on duplicate key update nombreEquipo='Edgerunners'").executeUpdate();
+        em.createNativeQuery("insert into Jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo) values (2080, 'Maine', 'Night City', '6-4', 105, 'C-F', 'Edgerunners') on duplicate key update nombreEquipo='Edgerunners'").executeUpdate();
+        em.createNativeQuery("insert into Jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo) values (2081, 'Dorio', 'Night City', '6-2', 102, 'C-F', 'Edgerunners') on duplicate key update nombreEquipo='Edgerunners'").executeUpdate();
+        em.createNativeQuery("insert into Jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo) values (2082, 'Pilar', 'Night City', '6-6', 80, 'C', 'Edgerunners') on duplicate key update nombreEquipo='Edgerunners'").executeUpdate();
+        em.createNativeQuery("insert into Jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo) values (2083, 'Falco', 'Night City', '5-7', 74, 'F', 'Edgerunners') on duplicate key update nombreEquipo='Edgerunners'").executeUpdate();
+        em.createNativeQuery("insert into Jugadores (codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo) values (2084, 'Kiwi', 'Night City', '5-11', 70, 'F', 'Edgerunners') on duplicate key update nombreEquipo='Edgerunners'").executeUpdate();
+        transaction.commit();
     }
 }
